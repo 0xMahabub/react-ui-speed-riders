@@ -1,0 +1,29 @@
+.layout {
+    display: block;
+    width: 100%;
+}
+
+.landing_page {
+    background-image: url("../images/Bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.layout,
+.landing_page {
+    min-height: 100vh;
+}
+
+.container {
+    display: block;
+    width: 80%;
+    max-width: 1500px;
+    margin: 0;
+    padding: .1rem;
+    margin: 0 auto;
+}
+
+.cards_container {
+    margin: 10rem 0;
+}

@@ -1,0 +1,48 @@
+.header_area {
+    background-color: transparent;
+    margin: 0;
+    overflow: hidden;
+}
+
+.logo_area {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 250px;
+    max-height: 2.5rem;
+    width: auto;
+
+    .logo {
+        font-size: 2rem;
+        line-height: 2.1rem;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.menu {
+    display: inline-flex;
+    padding: 1rem 0;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 0 2rem;
+
+    // li 
+    li {
+        a, span {
+            text-decoration: none;
+            text-transform: capitalize;
+            color: var(--app-txt-color-pr);
+            font-weight: 500;
+        }
+    }
+}
+
