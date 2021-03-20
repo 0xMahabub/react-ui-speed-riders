@@ -103,3 +103,13 @@ ul, li {
         }
     }
 }
+
+
+.ride_detail {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0 3rem;
+    margin: 0 auto;
+    padding: 1.5rem 0 0 0;
+    border-top: 2px solid #cdcccb;
+}

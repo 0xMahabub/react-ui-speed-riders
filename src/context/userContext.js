@@ -10,7 +10,7 @@ const userContext = createContext(); // user-context
 /*--- userContextData : user context data for share ---*/
 const ContextData  = () => {
     const [user, setUser] = useState({
-        isAuth: false,
+        isAuth: true,
         name: '',
         email: ''
     }); // user state

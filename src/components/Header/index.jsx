@@ -1,39 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './header.scss';
 import { Link, useHistory } from 'react-router-dom';
 import { useUserContext } from '../../context/userContext';
+import { VscMenu } from "react-icons/vsc";
 
 
 
-const HeaderArea = () => {
-    const history = useHistory();
-
-    // user context
-    const { user, logoutUser } = useUserContext();
-
-    const logoutBtn = async () => {
-        await logoutUser()
-        history.replace('/')
-    }
-
-
+// menu
+const NavMenu = ({ user, logoutBtn }) => {
     return (
-        <header className="header_area">
-            <div className="container">
-                <nav className="navbar">
-                    <div className="logo_area">
-                        {/* <img src={logo} alt="logo" className="logo" /> */}
-                        <span className="logo">
-                            speed riders
-                        </span>
-                    </div>
-
-                    <ul className="menu">
+        <ul className="menu">
                         <li>
                             <Link to="/">home</Link>
                         </li>
                         <li>
-                            <Link to="/destination">destination</Link>
+                            <Link to="/ride/bike">destination</Link>
                         </li>
                         <li>
                             <Link to="/blog">blog</Link>
@@ -60,6 +41,67 @@ const HeaderArea = () => {
                             )
                         }
                     </ul>
+    )
+}
+
+
+
+
+
+
+const HeaderArea = () => {
+    // history
+    const history = useHistory();
+
+    // responsive
+    const [width, setWidth] = useState(window.innerWidth);
+    const [mobile, setMobile] = useState(false);
+
+    useEffect(() => {
+        const resizeScreen = () => {
+            setWidth(window.innerWidth);
+        }
+        window.addEventListener('resize', resizeScreen);
+        return () => {
+            window.removeEventListener('resize', resizeScreen)
+        }
+    }, []);
+
+    const toggleMobileNav = () => setMobile(!mobile)
+
+    // user context
+    const { user, logoutUser } = useUserContext();
+
+    const logoutBtn = async () => {
+        await logoutUser()
+        history.replace('/')
+    }
+
+
+    return (
+        <header className="header_area">
+            <div className="container">
+                <nav className="navbar">
+                    <div className="logo_area">
+                        {/* <img src={logo} alt="logo" className="logo" /> */}
+                        <span className="logo">
+                            speed riders
+                        </span>
+                    </div>
+
+                    {
+                        width >= 800 ? (
+                            <NavMenu user={user} logoutBtn={logoutBtn} />
+                        ) : (
+                            <div className="mobile_menu">
+                                <span className="toggle_btn" onClick={toggleMobileNav}><VscMenu /></span>
+                                <div className="mobile_menu_container" style={{ display: 'none' }}>
+                                    <NavMenu user={user} logoutBtn={logoutBtn} />
+                                </div>
+                            </div>
+                        )
+                    }
+
                 </nav>
             </div>
         </header>

@@ -46,3 +46,45 @@
     }
 }
 
+
+.toggle_btn {
+    font-size: 1.2rem;
+    padding: .2rem .7rem;
+}
+
+.mobile_menu {
+    display: flex;
+    position: fixed;
+    overflow: hidden;
+    background-color: rgba(0,0,0,.1);
+    width: 100%;
+    max-width: 100px;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+
+
+
+
+
+/*=== RESPONSIVE CSS ===*/
+
+// max 1200px
+@media (max-width: 1199.9px) {
+    .header_area {
+        .logo {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+
+// max 800px
+@media (max-width: 799.9px) {
+    .header_area {
+        .logo {
+            font-size: 1.35rem;
+        }
+    }
+}

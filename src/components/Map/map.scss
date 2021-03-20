@@ -1,0 +1,34 @@
+.map_container {
+    display: flex;
+    position: relative !important;
+    justify-content: flex-start;
+    max-width: calc(100% - 400px);
+    width: 100%;
+    border: 1px solid transparent;
+    min-height: calc(100vh - 200px);
+    background-color: transparent;
+
+    img {
+        width: 100%;
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+
+    border-radius: .4rem;
+    -webkit-border-radius: .4rem;
+    -moz-border-radius: .4rem;
+    -ms-border-radius: .4rem;
+    -o-border-radius: .4rem;
+}
+
+// leaflet core css
+.leaflet-container {
+    width: 100%;
+    height: calc(100vh - 200px);
+    border-radius: .4rem;
+    -webkit-border-radius: .4rem;
+    -moz-border-radius: .4rem;
+    -ms-border-radius: .4rem;
+    -o-border-radius: .4rem;
+}
