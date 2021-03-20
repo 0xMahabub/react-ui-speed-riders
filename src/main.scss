@@ -113,3 +113,54 @@ ul, li {
     padding: 1.5rem 0 0 0;
     border-top: 2px solid #cdcccb;
 }
+
+
+/*=== RESPONSIVE CSS ===*/
+// max 992px
+@media (max-width: 991.9px) {
+    .ride_detail {
+        flex-direction: column;
+        gap: 1.5rem 0;
+    }
+}
+
+
+// max 800px
+@media (max-width: 799.9px) {
+    .cards_container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    ul.mobile_nav {
+        padding-left: 2rem;
+    }
+}
+
+// max 500px
+@media (max-width: 499.9px) {
+    .user_li {
+        font-size: 1rem;
+        word-wrap: break-word;
+        display: inline-flex;
+        flex-wrap: wrap;
+        color: white;
+    }
+
+    ul.mobile_nav {
+        padding-left: 1rem;
+    }
+
+
+    .cards_container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .page_404 {
+        img {
+            max-width: 100%;
+        }
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+}

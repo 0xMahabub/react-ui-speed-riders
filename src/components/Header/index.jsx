@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './header.scss';
 import { Link, useHistory } from 'react-router-dom';
 import { useUserContext } from '../../context/userContext';
-import { VscMenu } from "react-icons/vsc";
+import { VscMenu, VscChromeClose } from "react-icons/vsc";
 
 
 
 // menu
-const NavMenu = ({ user, logoutBtn }) => {
+const NavMenu = ({ user, logoutBtn, isMobile }) => {
     return (
-        <ul className="menu">
+        <ul className={`${ isMobile ? 'mobile_nav' : 'menu' }`}>
                         <li>
                             <Link to="/">home</Link>
                         </li>
@@ -29,7 +29,7 @@ const NavMenu = ({ user, logoutBtn }) => {
                                 </li>
                             ) : (
                                 <>
-                                    <li key={'x923irhuf'}>
+                                    <li key={'x923irhuf'} className="user_li">
                                         <span style={{ fontWeight: '700', textTransform: 'inherit' }}>
                                             {user.name || user.email}
                                         </span>
@@ -69,6 +69,8 @@ const HeaderArea = () => {
 
     const toggleMobileNav = () => setMobile(!mobile)
 
+    let mobileNavMaxWidth = mobile ? '320px' : '0';
+
     // user context
     const { user, logoutUser } = useUserContext();
 
@@ -91,12 +93,18 @@ const HeaderArea = () => {
 
                     {
                         width >= 800 ? (
-                            <NavMenu user={user} logoutBtn={logoutBtn} />
+                            <NavMenu user={user} logoutBtn={logoutBtn} isMobile={mobile} />
                         ) : (
                             <div className="mobile_menu">
                                 <span className="toggle_btn" onClick={toggleMobileNav}><VscMenu /></span>
-                                <div className="mobile_menu_container" style={{ display: 'none' }}>
-                                    <NavMenu user={user} logoutBtn={logoutBtn} />
+                                <div className="mobile_menu_container" style={{
+                                    maxWidth: mobileNavMaxWidth
+                                }}>
+                                    <span className="toggle_btn" onClick={toggleMobileNav}>
+                                        <VscChromeClose />
+                                    </span>
+
+                                    <NavMenu user={user} logoutBtn={logoutBtn} isMobile={mobile} />
                                 </div>
                             </div>
                         )

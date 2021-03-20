@@ -176,3 +176,36 @@
     -ms-border-radius: 1.5rem;
     -o-border-radius: 1.5rem;
 }
+
+
+// min 800px
+@media (min-width: 800px) {
+    .form_container {
+        width: auto;
+    }
+}
+
+
+
+// max 800px
+@media (max-width: 799.9px) {
+    .form_container {
+        margin-top: 2.5rem;
+    }
+}
+
+
+// max 500px
+@media (max-width: 499.9px) {
+    .form_container {
+        width: 100%;
+
+        .form_area {
+            width: 100%;
+            max-width: calc(100% - 10px);
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+}
+

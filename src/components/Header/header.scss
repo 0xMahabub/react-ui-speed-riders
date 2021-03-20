@@ -48,21 +48,64 @@
 
 
 .toggle_btn {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     padding: .2rem .7rem;
 }
 
-.mobile_menu {
+.mobile_menu_container {
     display: flex;
     position: fixed;
+    flex-direction: column;
     overflow: hidden;
     background-color: rgba(0,0,0,.1);
     width: 100%;
-    max-width: 100px;
+    max-width: 0;
     height: 100%;
     top: 0;
     right: 0;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
 }
+
+.mobile_menu_container {
+    background-color: var(--app-color-pr);
+
+    .toggle_btn {
+        display: inline-flex;
+        max-width: 100px;
+        color: white;
+    }
+
+    .btn-nav {
+        display: inline-flex;
+        max-width: 120px;
+        background-color: var(--app-txt-color-pr);
+    }
+}
+
+
+.mobile_nav {
+    margin-top: 3rem;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 1.5rem 0;
+    background-color: var(--app-color-pr);
+
+    li {
+        a {
+            display: block;
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+}
+
 
 
 
@@ -77,6 +120,10 @@
             font-size: 1.5rem;
         }
     }
+
+    .mobile_menu_container {
+        z-index: 9999;
+    }
 }
 
 
@@ -87,4 +134,17 @@
             font-size: 1.35rem;
         }
     }
+
+    .mobile_menu_container {
+        width: 100%;
+        max-width: 100%;
+    }  
+}
+
+
+// max 500px
+@media (max-width: 499.9px) {
+    .mobile_menu_container {
+        max-width: 100%;
+    } 
 }

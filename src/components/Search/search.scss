@@ -232,3 +232,13 @@
     -ms-border-radius: .45em;
     -o-border-radius: .45em;
 }
+
+
+
+// max 992px
+@media (max-width: 991.9px) {
+    .search_container {
+        justify-content: center;
+        max-width: 100%;
+    }
+}

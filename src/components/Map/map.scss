@@ -32,3 +32,14 @@
     -ms-border-radius: .4rem;
     -o-border-radius: .4rem;
 }
+
+
+
+
+// max 992px
+@media (max-width: 991.9px) {
+    .map_container {
+        justify-content: center;
+        max-width: 100%;
+    }
+}
